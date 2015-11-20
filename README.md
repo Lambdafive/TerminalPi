@@ -91,7 +91,7 @@ This will install some software tools that will be useful later on.
 Now use [git](https://en.wikipedia.org/wiki/Git_(software)) to get the latest version of the script that we will use to run the remote desktop software.
 
 ```bash
-git clone https://Lambdafive@bitbucket.org/Lambdafive/terminalpi.git
+git clone https://github.com/Lambdafive/TerminalPi.git
 
 cp terminalpi/rdp.py ~/
 ```
