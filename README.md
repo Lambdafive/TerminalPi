@@ -193,3 +193,5 @@ And that's it. Hit `sudo reboot` to reboot and (fingers crossed) be presented wi
 
 If you're at the login screen and need to access the command line _Ctrl+Alt+F1_ will drop you at a login
  prompt (username: _pi_). When your done use the `logout` command to leave and then _Ctrl+Alt+F7_ will get you back to the GUI.
+
+This documentation is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License.](http://creativecommons.org/licenses/by-sa/4.0/)
