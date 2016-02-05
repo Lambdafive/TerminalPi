@@ -189,9 +189,47 @@ First we navigate to the correct directory and create a backup of _menu.xml_ The
 
 Hit _Ctrl+X_ to exit and save.
 
-And that's it. Hit `sudo reboot` to reboot and (fingers crossed) be presented with an RDP Logon screen.
+And that's it. Hit `sudo reboot` to reboot and (fingers crossed) be presented with an RDP Logon screen (See below for notes on connecting to Windows Server 2012 servers).
 
 If you're at the login screen and need to access the command line _Ctrl+Alt+F1_ will drop you at a login
  prompt (username: _pi_). When your done use the `logout` command to leave and then _Ctrl+Alt+F7_ will get you back to the GUI.
+ 
+Connecting to Server 2012
+====
 
+Version 1.7.* of Rdesktop won't connect to terminal servers running Windows 2012. Version 1.8.3 does but at the time of writing it isn't in the Raspbian repository, but this can be solved by grabbing the source code and compling it on the Pi.
+
+Make sure the repositories are up to date with `sudo aptitude update && sudo aptitude full-upgrade` if you haven't done it in a while. 
+
+First lets get a copy of the source via _wget_. Make sure you're in the home directory with `cd ~`. Then enter:
+
+```bash
+wget https://github.com/rdesktop/rdesktop/releases/download/v1.8.3/rdesktop-1.8.3.tar.gz
+tar -zxvf rdesktop-1.8.3.tar.gz
+```
+This will download the tarred and gzipped file and then unpack it into the home folder. Before we start compling we need to install a few required developement packages and to remove the default version of rdesktop.
+
+```bash
+sudo aptitude install libx11-dev libgssglue-dev libgssglue1 libssl-dev
+sudo aptitude remove rdesktop
+```
+
+Now we can start the compilation process. 
+
+```bash
+cd rdesktop-1.8.3 
+./configure --disable-smartcard
+make
+sudo make install
+```
+
+The configure will check that all the dependencies for the compilation are installed if this throws an error you probably need to install a dev package. [Google is your friend](https://www.google.com). The `--disable-smartcard` option does what it says on the tin. If you need smartcard support, leave it off and deal with any extra packages you may need to install. `Make` will compile and `make install` will copy the files to their required locations. 
+
+Reboot.
+
+**Note:** You may get an error that mentions 'Credssp'. Check out this link [](http://devnops.blogspot.co.uk/2015/08/rdesktop-failed-to-connect-credssp.html) 
+
+
+License
+=====
 This documentation is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License.](http://creativecommons.org/licenses/by-sa/4.0/)
