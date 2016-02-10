@@ -9,4 +9,4 @@ domain = 'a_domain'
 server = 'a_server'
 
 while True:
-    subprocess.call(['rdesktop', '-f', '-d', domain, '-u', user, '-r', 'disk:usb=/media/usb', server])
+    subprocess.call(['rdesktop', '-f', '-d', domain, '-u', user, '-r', 'disk:usb=/media/usb', '-x', '0x8C', server])
