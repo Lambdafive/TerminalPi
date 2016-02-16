@@ -227,7 +227,7 @@ The configure will check that all the dependencies for the compilation are insta
 
 Reboot.
 
-**Note:** You may get an error that mentions 'Credssp'. Check out this link [](http://devnops.blogspot.co.uk/2015/08/rdesktop-failed-to-connect-credssp.html) 
+**Note:** You may get an error that mentions 'Credssp'. [Check out this link](http://devnops.blogspot.co.uk/2015/08/rdesktop-failed-to-connect-credssp.html) 
 
 
 License
