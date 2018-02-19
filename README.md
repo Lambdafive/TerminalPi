@@ -1,7 +1,7 @@
 # TerminalPi
 How to turn a RaspberryPi into a cheap Windows Terminal client.
 
-#Setting up the RaspberryPi from scratch
+# Setting up the RaspberryPi from scratch
 If you have an SD card with _NOOBS_ already installed then we're going to nuke it from a low-earth-orbit and start again.
 
 We begin by installing the Raspbian distrobution onto a SD card and power up the Pi. 
@@ -91,7 +91,7 @@ This will install some software tools that will be useful later on.
 Now use [git](https://en.wikipedia.org/wiki/Git_(software)) to get the latest version of the script that we will use to run the remote desktop software.
 
 ```bash
-git clone https://github.com/Lambdafive/TerminalPi.git
+git clone https://github.com/rhodri-io/TerminalPi.git
 
 cp terminalpi/rdp.py ~/
 ```
