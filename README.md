@@ -138,15 +138,15 @@ We'll use the [cron daemon](https://en.wikipedia.org/wiki/Cron) to schedule some
 ```bash
 sudo crontab -e 
 ```
-
+We will add tasks to reboot the Pi at 4am every day and make it synchronise it's time source with an NTP server every 12 hours.
 Which will open it in Nano. Scroll to the bottom and type the following (ensure the spaces are correct!)
 
 ```bash
 0 4 * * * sudo shutdown -rF now
-0 */12 * * * sudo ntpdate -u 192.168.1.80
+0 */12 * * * sudo ntpdate -u 0.pool.ntp.org
 ```
 
-Hit _Ctrl+X_ to exit and save. (_192.168.1.80_ is the ip address of the NTP server. A domain name will also work).
+Hit _Ctrl+X_ to exit and save. (_0.pool.ntp.org is NTP server pool. You can use either IP or DNS names here_).
 
 ----
 
